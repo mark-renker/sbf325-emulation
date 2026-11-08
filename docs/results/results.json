@@ -1,0 +1,606 @@
+{
+  "generated": "2026-11-07T20:47:09",
+  "machine": "macOS-26.6.2-arm64-arm-64bit",
+  "renderer": "/Users/markrenker/dev/sbf325-emulation/build-measure/sbf_render",
+  "sample_rate": 96000,
+  "tunables": {
+    "bbdStages": 1024,
+    "flangerMinMs": 0.5,
+    "flangerMaxMs": 15,
+    "chorusMinMs": 5,
+    "chorusMaxMs": 15,
+    "vcoLaw": 0,
+    "depthLaw": 0,
+    "aaCutoffHz": 18000,
+    "aaOrder": 3,
+    "reconCutoffHz": 18000,
+    "reconOrder": 4,
+    "reconTrack": 0,
+    "bbdLoss": 1,
+    "bbdNoiseRms": 3e-05,
+    "clockFeedthrough": 2e-05,
+    "clipLevel": 1,
+    "clipHardness": 16,
+    "companderOn": 1,
+    "compTauMs": 22,
+    "compVref": 0.158,
+    "compMaxGainDb": 40,
+    "fbMax": 0.95,
+    "lfoLedThreshold": 0.9,
+    "fl1InputBMix": 1,
+    "fl3Own": 1,
+    "fl3Cross": -0.5,
+    "flangerDry": 1,
+    "flangerWet": 1,
+    "chorusDry": 1,
+    "chorusWet": 1,
+    "smoothMs": 20,
+    "inLedSignalDb": -40,
+    "oversample": 1
+  },
+  "results": [
+    {
+      "name": "8.1 delay law",
+      "pass": true,
+      "skipped": false,
+      "gate": "worst error <= 3 % of reading",
+      "metrics": {
+        "points": [
+          {
+            "mode": "fl2",
+            "manual_ms": 0.5,
+            "measured_us": 550.06,
+            "expected_us": 540.79,
+            "error_pct": 1.715
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 1.95,
+            "measured_us": 2001.28,
+            "expected_us": 1990.79,
+            "error_pct": 0.527
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 3.4,
+            "measured_us": 3453.69,
+            "expected_us": 3440.79,
+            "error_pct": 0.375
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 4.85,
+            "measured_us": 4903.56,
+            "expected_us": 4890.79,
+            "error_pct": 0.261
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 6.3,
+            "measured_us": 6356.45,
+            "expected_us": 6340.79,
+            "error_pct": 0.247
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 7.75,
+            "measured_us": 7803.83,
+            "expected_us": 7790.79,
+            "error_pct": 0.167
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 9.2,
+            "measured_us": 9255.59,
+            "expected_us": 9240.79,
+            "error_pct": 0.16
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 10.65,
+            "measured_us": 10705.69,
+            "expected_us": 10690.79,
+            "error_pct": 0.139
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 12.1,
+            "measured_us": 12167.73,
+            "expected_us": 12140.79,
+            "error_pct": 0.222
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 13.55,
+            "measured_us": 13622.52,
+            "expected_us": 13590.79,
+            "error_pct": 0.233
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 15.0,
+            "measured_us": 15062.13,
+            "expected_us": 15040.79,
+            "error_pct": 0.142
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 5.0,
+            "measured_us": 5053.49,
+            "expected_us": 5040.79,
+            "error_pct": 0.252
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 6.0,
+            "measured_us": 6055.03,
+            "expected_us": 6040.79,
+            "error_pct": 0.236
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 7.0,
+            "measured_us": 7058.24,
+            "expected_us": 7040.79,
+            "error_pct": 0.248
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 8.0,
+            "measured_us": 8060.62,
+            "expected_us": 8040.79,
+            "error_pct": 0.247
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 9.0,
+            "measured_us": 9057.53,
+            "expected_us": 9040.79,
+            "error_pct": 0.185
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 10.0,
+            "measured_us": 10060.96,
+            "expected_us": 10040.79,
+            "error_pct": 0.201
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 11.0,
+            "measured_us": 11057.97,
+            "expected_us": 11040.79,
+            "error_pct": 0.156
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 12.0,
+            "measured_us": 12060.42,
+            "expected_us": 12040.79,
+            "error_pct": 0.163
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 13.0,
+            "measured_us": 13069.23,
+            "expected_us": 13040.79,
+            "error_pct": 0.218
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 14.0,
+            "measured_us": 14059.73,
+            "expected_us": 14040.79,
+            "error_pct": 0.135
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 15.0,
+            "measured_us": 15062.13,
+            "expected_us": 15040.79,
+            "error_pct": 0.142
+          }
+        ],
+        "worst_error_pct": 1.715,
+        "reference": "model nominal (no hardware captures)"
+      },
+      "plots": [
+        "plots/delay_law.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "8.2 bandwidth law",
+      "pass": true,
+      "skipped": false,
+      "gate": "-3 dB point within +-10 % of reference",
+      "metrics": {
+        "settings": [
+          {
+            "manual_ms": 0.5,
+            "f3db_hz": 14139.7,
+            "ref_hz": null
+          },
+          {
+            "manual_ms": 1.0,
+            "f3db_hz": 14126.8,
+            "ref_hz": null
+          },
+          {
+            "manual_ms": 2.0,
+            "f3db_hz": 14073.1,
+            "ref_hz": null
+          },
+          {
+            "manual_ms": 5.0,
+            "f3db_hz": 13711.9,
+            "ref_hz": null
+          },
+          {
+            "manual_ms": 10.0,
+            "f3db_hz": 12348.6,
+            "ref_hz": null
+          },
+          {
+            "manual_ms": 15.0,
+            "f3db_hz": 10229.9,
+            "ref_hz": null
+          }
+        ]
+      },
+      "plots": [
+        "plots/bandwidth.png"
+      ],
+      "notes": "no hardware captures: gating the 0.5 ms setting against the published 14 kHz (+-10 %); got 14140 Hz"
+    },
+    {
+      "name": "8.3 mode matrix",
+      "pass": true,
+      "skipped": false,
+      "gate": "own/cross/dry within 0.5 dB",
+      "metrics": {
+        "measured": {
+          "own_db": -0.003,
+          "cross_db": -6.023,
+          "dry_db": 0.0,
+          "dry_leak_to_B_db": -600.0,
+          "cross_sign": -1,
+          "fl2_B_leak_db": -600.0,
+          "fl1_output_difference": 0.0
+        },
+        "expected_db": {
+          "own": 0.0,
+          "cross": -6.021,
+          "dry": 0.0
+        },
+        "errors_db": {
+          "own": 0.003,
+          "cross": 0.003,
+          "dry": 0.0
+        },
+        "reference": "declared tunables"
+      },
+      "plots": [
+        "plots/mode_matrix.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "8.4 feedback ceiling",
+      "pass": true,
+      "skipped": false,
+      "gate": "no self-oscillation at 100 %; comb peak within 1 dB of hardware",
+      "metrics": {
+        "settings": [
+          {
+            "manual_ms": 0.5,
+            "tail_dbfs": -137.2,
+            "during_dbfs": -21.2,
+            "peak_abs": 0.251,
+            "decays": true,
+            "max_comb_peak_db": 25.46,
+            "peak_at_hz": 1829.7
+          },
+          {
+            "manual_ms": 1.0,
+            "tail_dbfs": -133.4,
+            "during_dbfs": -3.8,
+            "peak_abs": 0.998,
+            "decays": true,
+            "max_comb_peak_db": 25.5,
+            "peak_at_hz": 955.2
+          },
+          {
+            "manual_ms": 2.0,
+            "tail_dbfs": -130.7,
+            "during_dbfs": -4.0,
+            "peak_abs": 0.999,
+            "decays": true,
+            "max_comb_peak_db": 25.52,
+            "peak_at_hz": 488.3
+          },
+          {
+            "manual_ms": 5.0,
+            "tail_dbfs": -127.5,
+            "during_dbfs": -4.5,
+            "peak_abs": 0.999,
+            "decays": true,
+            "max_comb_peak_db": 25.53,
+            "peak_at_hz": 198.0
+          },
+          {
+            "manual_ms": 10.0,
+            "tail_dbfs": -103.6,
+            "during_dbfs": -4.9,
+            "peak_abs": 0.998,
+            "decays": true,
+            "max_comb_peak_db": 25.59,
+            "peak_at_hz": 99.4
+          },
+          {
+            "manual_ms": 15.0,
+            "tail_dbfs": -75.6,
+            "during_dbfs": -6.1,
+            "peak_abs": 0.995,
+            "decays": true,
+            "max_comb_peak_db": 25.44,
+            "peak_at_hz": 66.4
+          }
+        ],
+        "reference": "none (decay gate only)"
+      },
+      "plots": [
+        "plots/feedback_ceiling.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "8.5 compander",
+      "pass": true,
+      "skipped": false,
+      "gate": "release tau within 20 % of reference; attack settles",
+      "metrics": {
+        "attack_settle_3db_ms": 0.0,
+        "release_tau_ms": 24.21,
+        "expected_attack_ms": 66,
+        "expected_release_tau_ms": 22,
+        "attack_err_pct": 0.0,
+        "release_err_pct": 10.1,
+        "noise_with_tone_db": -72.4,
+        "noise_without_tone_db": -112.3,
+        "reference": "model tau = 22 ms"
+      },
+      "plots": [
+        "plots/compander.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "8.6 LFO",
+      "pass": true,
+      "skipped": false,
+      "gate": "rate within 5 %; triangle; LEDs at peaks",
+      "metrics": {
+        "rates": [
+          {
+            "rate_hz": 0.02,
+            "measured_hz": 0.02,
+            "error_pct": 0.0,
+            "triangle_corr": 1.0,
+            "sine_corr": 0.9908,
+            "led_at_peak": true,
+            "led_on_fraction": 0.05
+          },
+          {
+            "rate_hz": 0.3,
+            "measured_hz": 0.3,
+            "error_pct": 0.0,
+            "triangle_corr": 1.0,
+            "sine_corr": 0.9909,
+            "led_at_peak": true,
+            "led_on_fraction": 0.05
+          },
+          {
+            "rate_hz": 5.0,
+            "measured_hz": 5.0,
+            "error_pct": 0.0,
+            "triangle_corr": 0.99991,
+            "sine_corr": 0.9913,
+            "led_at_peak": true,
+            "led_on_fraction": 0.05
+          }
+        ],
+        "waveform": "triangle"
+      },
+      "plots": [
+        "plots/lfo.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "THD+N sweep",
+      "pass": true,
+      "skipped": false,
+      "gate": "finite; THD+N at -20 dBFS <= -50 dB (hardware curve when available)",
+      "metrics": {
+        "levels": [
+          {
+            "level_dbfs": -40,
+            "thdn_db": -66.49,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -35,
+            "thdn_db": -68.97,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -30,
+            "thdn_db": -71.44,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -25,
+            "thdn_db": -73.88,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -20,
+            "thdn_db": -76.28,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -15,
+            "thdn_db": -78.62,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -10,
+            "thdn_db": -81.01,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": -5,
+            "thdn_db": -27.39,
+            "ref_db": null
+          },
+          {
+            "level_dbfs": 0,
+            "thdn_db": -12.97,
+            "ref_db": null
+          }
+        ],
+        "reference": "none (informational)"
+      },
+      "plots": [
+        "plots/thd.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "aliasing",
+      "pass": true,
+      "skipped": false,
+      "gate": "products below the tone <= -80 dBFS at -12 dBFS input; 0 dBFS reported",
+      "metrics": {
+        "cases": [
+          {
+            "input_dbfs": -12,
+            "tone_hz": 10000,
+            "worst_alias_dbfs": -121.9,
+            "at_hz": 2000.4
+          },
+          {
+            "input_dbfs": -12,
+            "tone_hz": 15000,
+            "worst_alias_dbfs": -121.6,
+            "at_hz": 3000.7
+          },
+          {
+            "input_dbfs": 0,
+            "tone_hz": 10000,
+            "worst_alias_dbfs": -49.4,
+            "at_hz": 5990.2
+          },
+          {
+            "input_dbfs": 0,
+            "tone_hz": 15000,
+            "worst_alias_dbfs": -48.0,
+            "at_hz": 9009.6
+          }
+        ]
+      },
+      "plots": [
+        "plots/aliasing_12.png",
+        "plots/aliasing_0.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "noise floor",
+      "pass": true,
+      "skipped": false,
+      "gate": "< -70 dBm (-90 dBFS) with noise on; < -120 dBFS off",
+      "metrics": {
+        "cases": [
+          {
+            "noise": "on",
+            "manual_ms": 5,
+            "rms_dbfs": -135.5,
+            "rms_dbm": -115.5
+          },
+          {
+            "noise": "on",
+            "manual_ms": 0.5,
+            "rms_dbfs": -145.3,
+            "rms_dbm": -125.3
+          },
+          {
+            "noise": "on",
+            "manual_ms": 15,
+            "rms_dbfs": -131.6,
+            "rms_dbm": -111.6
+          },
+          {
+            "noise": "off",
+            "manual_ms": 5,
+            "rms_dbfs": -600.0,
+            "rms_dbm": -580.0
+          }
+        ]
+      },
+      "plots": [
+        "plots/noise_floor.png"
+      ],
+      "notes": ""
+    },
+    {
+      "name": "null test",
+      "pass": true,
+      "skipped": true,
+      "gate": "residual < -30 dB",
+      "metrics": {},
+      "plots": [],
+      "notes": "no reference captures under --reference; skipped"
+    },
+    {
+      "name": "CPU / latency",
+      "pass": true,
+      "skipped": false,
+      "gate": "informational CPU; latency reported exactly",
+      "metrics": {
+        "cpu_48k_64": [
+          {
+            "mode": "fl1",
+            "manual_ms": 2,
+            "cpu_percent": 1.87
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 2,
+            "cpu_percent": 3.62
+          },
+          {
+            "mode": "fl3",
+            "manual_ms": 2,
+            "cpu_percent": 3.63
+          },
+          {
+            "mode": "chorus",
+            "manual_ms": 10,
+            "cpu_percent": 2.39
+          },
+          {
+            "mode": "fl2",
+            "manual_ms": 0.5,
+            "cpu_percent": 5.32
+          }
+        ],
+        "latency_samples": 4,
+        "latency_note": "0 algorithmic; 4 samples oversampling (half-band up/down round trip), reported to the host"
+      },
+      "plots": [],
+      "notes": ""
+    }
+  ]
+}

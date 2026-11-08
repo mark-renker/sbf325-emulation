@@ -1,0 +1,47 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  core-and-measurements:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy scipy soundfile matplotlib
+      - name: Build renderer + unit tests (no JUCE)
+        run: |
+          cmake -S . -B build-core -DSBF_BUILD_PLUGINS=OFF -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-core -j
+      - name: Unit tests
+        run: ./build-core/sbf_tests
+      - name: Section 8 measurements (fails on any gate regression)
+        run: python3 measure/run_all.py build-core/sbf_render --out results
+      - uses: actions/upload-artifact@v4
+        with:
+          name: measurement-results
+          path: results
+
+  plugins-macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build AU / VST3 / CLAP / Standalone (universal)
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release -j --target StereoBucketFlanger_All StereoBucketFlanger_CLAP sbf_tests
+      - run: ./build/sbf_tests
+      - name: auval
+        run: |
+          mkdir -p ~/Library/Audio/Plug-Ins/Components
+          cp -R "build/StereoBucketFlanger_artefacts/Release/AU/Stereo Bucket Flanger.component" ~/Library/Audio/Plug-Ins/Components/
+          killall -9 AudioComponentRegistrar || true
+          auval -v aufx Sbf3 Rnky
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plugins-macos
+          path: build/StereoBucketFlanger_artefacts/Release

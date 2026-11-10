@@ -27,6 +27,7 @@ jobs:
       - run: cmake --build build --config Release --parallel --target StereoBucketFlanger_VST3 StereoBucketFlanger_CLAP StereoBucketFlanger_Standalone sbf_tests sbf_render
       - shell: bash
         run: |
+          mkdir -p /c/tmp /d/tmp   # the unit tests write /tmp/sbf_test.wav; a native exe resolves that on the current drive
           ./build/Release/sbf_tests.exe
           VERSION=$(sed -n 's/^project(StereoBucketFlanger VERSION \([0-9.]*\).*/\1/p' CMakeLists.txt)
           OUT="Stereo Bucket Flanger $VERSION (Windows)"; mkdir -p "$OUT" dist

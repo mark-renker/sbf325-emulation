@@ -1,6 +1,6 @@
 # Stereo Bucket Flanger — BBD stereo flanger model inspired by the Roland SBF-325 (AU / VST3 / CLAP + harness)
 cmake_minimum_required(VERSION 3.22)
-project(StereoBucketFlanger VERSION 0.1.0 LANGUAGES C CXX)
+project(StereoBucketFlanger VERSION 0.1.1 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

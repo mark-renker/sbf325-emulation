@@ -1,0 +1,12 @@
+Stereo Bucket Flanger - manual macOS install (if you prefer not to use the .pkg)
+
+1. Copy "Stereo Bucket Flanger.component" to ~/Library/Audio/Plug-Ins/Components/
+2. Copy "Stereo Bucket Flanger.vst3" to ~/Library/Audio/Plug-Ins/VST3/
+3. Copy "Stereo Bucket Flanger.clap" to ~/Library/Audio/Plug-Ins/CLAP/
+4. Because the bundles were downloaded (not installed by a .pkg), macOS quarantines them. Clear that once:
+      xattr -dr com.apple.quarantine ~/Library/Audio/Plug-Ins/Components/"Stereo Bucket Flanger.component" \
+                                     ~/Library/Audio/Plug-Ins/VST3/"Stereo Bucket Flanger.vst3" \
+                                     ~/Library/Audio/Plug-Ins/CLAP/"Stereo Bucket Flanger.clap"
+5. Rescan plug-ins in your DAW. The plug-in appears under "Renky Denk".
+
+"Stereo Bucket Flanger.app" is the standalone app; drag it to /Applications (clear quarantine the same way).

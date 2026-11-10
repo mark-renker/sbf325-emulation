@@ -1,0 +1,56 @@
+# Tag v* -> macOS universal .pkg installer (+ raw bundles zip) and Windows zip, attached to a GitHub Release.
+name: release
+on:
+  push:
+    tags: [ 'v*' ]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  macos:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build (universal, JUCE 8.0.6 + clap-juce-extensions via FetchContent)
+        run: cmake -B build-universal -DCMAKE_BUILD_TYPE=Release && cmake --build build-universal -j 4
+      - run: ./build-universal/sbf_tests
+      - name: Package installer
+        run: packaging/make_installer.sh
+      - uses: actions/upload-artifact@v4
+        with: { name: macos, path: dist/* }
+  windows:
+    runs-on: windows-2022
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -B build -G "Visual Studio 17 2022" -A x64
+      - run: cmake --build build --config Release --parallel --target StereoBucketFlanger_VST3 StereoBucketFlanger_CLAP StereoBucketFlanger_Standalone sbf_tests sbf_render
+      - shell: bash
+        run: |
+          ./build/Release/sbf_tests.exe
+          VERSION=$(sed -n 's/^project(StereoBucketFlanger VERSION \([0-9.]*\).*/\1/p' CMakeLists.txt)
+          OUT="Stereo Bucket Flanger $VERSION (Windows)"; mkdir -p "$OUT" dist
+          cp -R "build/StereoBucketFlanger_artefacts/Release/VST3/Stereo Bucket Flanger.vst3" "$OUT/"
+          cp "build/StereoBucketFlanger_artefacts/Release/CLAP/Stereo Bucket Flanger.clap" "$OUT/"
+          cp "build/StereoBucketFlanger_artefacts/Release/Standalone/Stereo Bucket Flanger.exe" "$OUT/"
+          cp build/Release/sbf_render.exe "$OUT/"
+          cp packaging/INSTALL-Windows.txt "$OUT/INSTALL.txt"
+          7z a "dist/StereoBucketFlanger-$VERSION-Windows-x64.zip" "$OUT"
+      - uses: actions/upload-artifact@v4
+        with: { name: windows, path: dist/* }
+  publish:
+    if: always() && startsWith(github.ref, 'refs/tags/v') && needs.macos.result == 'success'
+    needs: [ macos, windows ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { path: dist }
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/**/*
+          body: |
+            ## Install
+            **macOS** (11+, Apple Silicon + Intel): download `StereoBucketFlanger-*-macOS.pkg`, open it (right-click > Open if Gatekeeper objects: the installer is not notarized), tick the formats you want. Done; rescan plug-ins in your DAW.
+            **Windows** (x64): download `StereoBucketFlanger-*-Windows-x64.zip`, unzip, copy the `.vst3` folder to `C:\Program Files\Common Files\VST3\` and the `.clap` to `C:\Program Files\Common Files\CLAP\`.
+            The plug-in appears under **Renky Denk > Stereo Bucket Flanger**. The `-macOS-bundles.zip` holds the raw bundles for manual installs.
+          generate_release_notes: true

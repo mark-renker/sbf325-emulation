@@ -27,6 +27,8 @@ Grab the latest files from the **[Releases page](../../releases/latest)**:
 The plug-in shows up under **Renky Denk › Stereo Bucket Flanger**. Every tagged release is built by
 `.github/workflows/release.yml`; `packaging/make_installer.sh` makes the same `.pkg` locally.
 
+![Stereo Bucket Flanger UI](docs/screenshot.png)
+
 ## Status
 
 | | |
@@ -117,7 +119,7 @@ algorithmic latency is zero.
 |---|---|
 | `src/dsp/` | JUCE-free DSP core: `Bbd.h` (variable-clock bucket brigade), `ModalFilter.h` (analog filters advanced exactly between clock ticks), `Compander.h` (NE570), `Lfo.h`, `Flanger.h` (modes, matrix, control path), `Tunables.h` |
 | `src/plugin/` | JUCE processor and editor |
-| `tools/Render.cpp` | standalone renderer / stimulus generator |
+| `tools/Render.cpp`, `tools/Snapshot.cpp` | standalone renderer / stimulus generator; editor-to-PNG snapshot tool |
 | `tests/UnitTests.cpp` | per-block unit tests |
 | `measure/` | Python measurement scripts, `run_all.py`, `Makefile` |
 | `docs/` | spec PDF, `BLOCK_DIAGRAM.md`, `MEASUREMENT_PROTOCOL.md`, `ASSUMPTIONS.md`, `results/` |

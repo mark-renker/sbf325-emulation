@@ -86,3 +86,10 @@ if(SBF_BUILD_CLAP)
     CLAP_ID "com.renkydenk.stereobucketflanger"
     CLAP_FEATURES audio-effect flanger chorus stereo)
 endif()
+
+# ---- UI snapshot tool (renders the editor to PNG, no host needed) -----------
+juce_add_console_app(sbf_snapshot PRODUCT_NAME "sbf_snapshot")
+target_sources(sbf_snapshot PRIVATE tools/Snapshot.cpp src/plugin/PluginProcessor.cpp)
+target_compile_definitions(sbf_snapshot PRIVATE JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_MODAL_LOOPS_PERMITTED=1)
+target_link_libraries(sbf_snapshot PRIVATE juce::juce_audio_utils juce::juce_gui_extra
+  PUBLIC juce::juce_recommended_config_flags juce::juce_recommended_lto_flags juce::juce_recommended_warning_flags)
